@@ -13,6 +13,7 @@ namespace PMSCS
         int MachineNumber { get; set; }
         int Reason { get; set; }
         int StoppingTime { get; set; }
-
     }
+
+
 }

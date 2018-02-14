@@ -8,10 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.OleDb;
+
 namespace PMSCS
 {
     public partial class MainForm : Form
     {
+        OleDbConnection dbcon = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.15.0;Data Source=|DataDirectory|\StoppingDB.accdb");
         public MainForm()
         {
             InitializeComponent();
@@ -21,12 +24,13 @@ namespace PMSCS
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "stoppingDBDataSet.Stoping". При необходимости она может быть перемещена или удалена.
             this.stopingTableAdapter.Fill(this.stoppingDBDataSet.Stoping);
+            dbcon.Open();
 
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
