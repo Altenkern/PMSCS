@@ -9,20 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using System.Data.OleDb;
+using PMSCS.DAL;
 
 namespace PMSCS
 {
     public partial class MainForm : Form
     {
-        private OleDbConnection dbcon;
-        private OleDbCommand dbCmd = new OleDbCommand();
-        //parameter from mdsaputra.udl
-        private String dbParam = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Projects\C#\PMSCS\StoppingDB.mdb;Persist Security Info=False";
-
+        public IStoppingRepository stoppingRepository ;
         public MainForm()
         {
-            dbcon = new OleDbConnection(dbParam);
-
+            stoppingRepository = new StoppingRepository();
             InitializeComponent();
         }
 
@@ -36,16 +32,15 @@ namespace PMSCS
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            dbcon.Open();
-            dbCmd.Connection = dbcon;
-            dbCmd.CommandText = "insert into Stoping (StDate,MachineNumber,Reason,StoppingTime)  values ('" 
+           var insertText= "insert into Stoping (StDate,MachineNumber,Reason,StoppingTime)  values ('" 
                 + this.dateTimePicker.Value.ToShortDateString() + "','"
                 + this.textBoxMachineNumber.Text + "','"
                 + this.comboBoxReason.Text+ "','"
                 + this.textBoxStoppingTime.Text
                 + "');";
-            int temp = dbCmd.ExecuteNonQuery();
-            if (temp > 0)
+
+            var temp = stoppingRepository.Insert(insertText);
+            if (temp ==true)
             {
                
                 MessageBox.Show("Record Successfuly Added");
@@ -54,7 +49,6 @@ namespace PMSCS
             {
                 MessageBox.Show("Record Fail to Added");
             }
-            dbcon.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

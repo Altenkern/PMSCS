@@ -108,5 +108,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PMSCS.DAL\PMSCS.DAL.csproj">
+      <Project>{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}</Project>
+      <Name>PMSCS.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

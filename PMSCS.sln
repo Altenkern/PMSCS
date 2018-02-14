@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSCS", "PMSCS\PMSCS.csproj", "{44A0B099-936D-480B-BE4A-91BECEEA4008}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSCS.DAL", "PMSCS.DAL\PMSCS.DAL.csproj", "{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{44A0B099-936D-480B-BE4A-91BECEEA4008}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{44A0B099-936D-480B-BE4A-91BECEEA4008}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{44A0B099-936D-480B-BE4A-91BECEEA4008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
