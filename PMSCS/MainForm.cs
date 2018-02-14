@@ -14,9 +14,15 @@ namespace PMSCS
 {
     public partial class MainForm : Form
     {
-        OleDbConnection dbcon = new OleDbConnection(@"Provider=Microsoft.ACE.OLEDB.15.0;Data Source=|DataDirectory|\StoppingDB.accdb");
+        private OleDbConnection dbcon;
+        private OleDbCommand dbCmd = new OleDbCommand();
+        //parameter from mdsaputra.udl
+        private String dbParam = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Projects\C#\PMSCS\StoppingDB.mdb;Persist Security Info=False";
+
         public MainForm()
         {
+            dbcon = new OleDbConnection(dbParam);
+
             InitializeComponent();
         }
 
@@ -24,13 +30,31 @@ namespace PMSCS
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "stoppingDBDataSet.Stoping". При необходимости она может быть перемещена или удалена.
             this.stopingTableAdapter.Fill(this.stoppingDBDataSet.Stoping);
-            dbcon.Open();
+           // dbcon.Open();
 
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-           
+            dbcon.Open();
+            dbCmd.Connection = dbcon;
+            dbCmd.CommandText = "insert into Stoping (StDate,MachineNumber,Reason,StoppingTime)  values ('" 
+                + this.dateTimePicker.Value.ToShortDateString() + "','"
+                + this.textBoxMachineNumber.Text + "','"
+                + this.comboBoxReason.Text+ "','"
+                + this.textBoxStoppingTime.Text
+                + "');";
+            int temp = dbCmd.ExecuteNonQuery();
+            if (temp > 0)
+            {
+               
+                MessageBox.Show("Record Successfuly Added");
+            }
+            else
+            {
+                MessageBox.Show("Record Fail to Added");
+            }
+            dbcon.Close();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
