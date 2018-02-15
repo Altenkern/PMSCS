@@ -126,13 +126,13 @@
             // 
             this.ColumnErorCode.HeaderText = "Код помилки";
             this.ColumnErorCode.Name = "ColumnErorCode";
-            this.ColumnErorCode.Width = 200;
+            this.ColumnErorCode.Width = 155;
             // 
             // ColumnStoppingTime
             // 
             this.ColumnStoppingTime.HeaderText = "Час зупинки";
             this.ColumnStoppingTime.Name = "ColumnStoppingTime";
-            this.ColumnStoppingTime.Width = 200;
+            this.ColumnStoppingTime.Width = 155;
             // 
             // MainForm
             // 
