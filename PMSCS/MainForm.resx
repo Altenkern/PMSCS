@@ -123,13 +123,52 @@
   <metadata name="ColumnStoppingTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="ColumnErorCode.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnStoppingTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>42</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAGBgAAAEAIAAoCQAAFgAAACgAAAAYAAAAMAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAArDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isN
+        Hf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+tcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvtcHA7ysNHf4rDR3+tcHA7ysNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isN
+        Hf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+tcHA7ysNHf4rDR3+tcHA7ysN
+        Hf61wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysN
+        Hf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO9kZGT/ZGRk/7XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvZGRk/2RkZP+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XB
+        wO9kZGT/ZGRk/2RkZP+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO9kZGT/ZGRk/2RkZP+1wcDvtcHA77XB
+        wO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvZGRk/2RkZP+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO9kZGT/ZGRk/7XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysN
+        Hf61wcDvtcHA77XBwO+1wcDvZGRk/2RkZP84xsYbtcHA77XBwO+1wcDvtcHA77XBwO9kZGT/ZGRk/7XB
+        wO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvZGRk/2Rk
+        ZP9kZGT/ZGRk/2RkZP9kZGT/ZGRk/2RkZP9kZGT/ZGRk/7XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysN
+        Hf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvtcHA72RkZP9kZGT/ZGRk/2RkZP9kZGT/ZGRk/2Rk
+        ZP9kZGT/tcHA77XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XB
+        wO+1wcDvtcHA72RkZP9kZGT/OMbGG7XBwO+1wcDvtcHA72RkZP9kZGT/tcHA77XBwO+1wcDvtcHA77XB
+        wO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvtcHA72RkZP9kZGT/ZGRk/7XB
+        wO+1wcDvZGRk/2RkZP9kZGT/tcHA77XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysN
+        Hf61wcDvtcHA77XBwO+1wcDvtcHA77XBwO9kZGT/ZGRk/7XBwO84xsYbZGRk/2RkZP+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO9kZGT/ZGRk/7XBwO+1wcDvZGRk/2RkZP+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysN
+        Hf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvZGRk/2RkZP9kZGT/ZGRk/7XB
+        wO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO+1wcDvZGRk/2RkZP9kZGT/ZGRk/7XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA72Rk
+        ZP9kZGT/tcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysN
+        Hf61wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA72RkZP9kZGT/tcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysN
+        Hf4rDR3+tcHA7ysNHf61wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO8rDR3+tcHA7ysNHf4rDR3+tcHA7ysNHf4rDR3+Kw0d/isN
+        Hf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isN
+        Hf4rDR3+tcHA7ysNHf4rDR3+tcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XB
+        wO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA77XBwO+1wcDvtcHA7ysNHf4rDR3+Kw0d/isN
+        Hf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isN
+        Hf4rDR3+Kw0d/isNHf4rDR3+Kw0d/isNHf4=
+</value>
+  </data>
 </root>

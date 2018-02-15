@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.buttonSave = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -35,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxMachineNumber = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.checkBoxShift = new System.Windows.Forms.CheckBox();
             this.ColumnErorCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStoppingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
@@ -60,13 +62,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBoxShift);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dateTimePicker);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxMachineNumber);
             this.groupBox1.Location = new System.Drawing.Point(12, 305);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(388, 90);
+            this.groupBox1.Size = new System.Drawing.Size(472, 90);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Додавання нових записів";
@@ -105,27 +108,41 @@
             this.dataGridView.Location = new System.Drawing.Point(13, 13);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(387, 286);
+            this.dataGridView.Size = new System.Drawing.Size(471, 286);
             this.dataGridView.TabIndex = 11;
+            // 
+            // checkBoxShift
+            // 
+            this.checkBoxShift.AutoSize = true;
+            this.checkBoxShift.Location = new System.Drawing.Point(368, 46);
+            this.checkBoxShift.Name = "checkBoxShift";
+            this.checkBoxShift.Size = new System.Drawing.Size(90, 21);
+            this.checkBoxShift.TabIndex = 7;
+            this.checkBoxShift.Text = "1-а зміна";
+            this.checkBoxShift.UseVisualStyleBackColor = true;
+            this.checkBoxShift.CheckedChanged += new System.EventHandler(this.checkBoxShift_CheckedChanged);
             // 
             // ColumnErorCode
             // 
             this.ColumnErorCode.HeaderText = "Код помилки";
             this.ColumnErorCode.Name = "ColumnErorCode";
+            this.ColumnErorCode.Width = 200;
             // 
             // ColumnStoppingTime
             // 
             this.ColumnStoppingTime.HeaderText = "Час зупинки";
             this.ColumnStoppingTime.Name = "ColumnStoppingTime";
+            this.ColumnStoppingTime.Width = 200;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 452);
+            this.ClientSize = new System.Drawing.Size(496, 452);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "PMSCS";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -146,6 +163,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn reasonDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn stoppingTimeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.CheckBox checkBoxShift;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnErorCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStoppingTime;
     }

@@ -31,14 +31,26 @@ namespace PMSCS
         private void buttonSave_Click(object sender, EventArgs e)
         {
             int rowCount = dataGridView.Rows.Count - 1;
-            
-            for(int i = 0; i<rowCount; i++)
+
+            string shift;
+
+            if (checkBoxShift.Checked == true)
             {
-                var insertText= "insert into Stoping (StDate,MachineNumber,Reason,StoppingTime)  values ('" 
+                shift = "2";
+            }
+            else
+            {
+                shift = "1";
+            }
+
+            for (int i = 0; i<rowCount; i++)
+            {
+                var insertText= "insert into Stoping (StDate,MachineNumber,Reason,StoppingTime,Shift)  values ('" 
                 + this.dateTimePicker.Value.ToShortDateString() + "','"
                 + this.textBoxMachineNumber.Text + "','"
                 + dataGridView.Rows[i].Cells[0].Value.ToString() + "','"
-                + dataGridView.Rows[i].Cells[1].Value.ToString()
+                + dataGridView.Rows[i].Cells[1].Value.ToString() + "','"
+                + shift
                 + "');";
 
                 var temp = stoppingRepository.Insert(insertText);
@@ -54,9 +66,19 @@ namespace PMSCS
                     MessageBox.Show("Record Fail to Added");
                     }
                 }
-            }
+            }           
+        }
 
-            
+        private void checkBoxShift_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxShift.Checked == true)
+            {
+                checkBoxShift.Text = "2-га зміна";
+            }
+            else
+            {
+                checkBoxShift.Text = "1-а зміна";
+            }
         }
 
         //private void button1_Click(object sender, EventArgs e)
