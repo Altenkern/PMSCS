@@ -45,7 +45,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(278, 401);
+            this.buttonSave.Location = new System.Drawing.Point(275, 643);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(122, 40);
             this.buttonSave.TabIndex = 1;
@@ -67,7 +67,7 @@
             this.groupBox1.Controls.Add(this.dateTimePicker);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBoxMachineNumber);
-            this.groupBox1.Location = new System.Drawing.Point(12, 305);
+            this.groupBox1.Location = new System.Drawing.Point(9, 547);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(472, 90);
             this.groupBox1.TabIndex = 4;
@@ -108,7 +108,7 @@
             this.dataGridView.Location = new System.Drawing.Point(13, 13);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(471, 286);
+            this.dataGridView.Size = new System.Drawing.Size(471, 528);
             this.dataGridView.TabIndex = 11;
             // 
             // checkBoxShift
@@ -138,7 +138,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 452);
+            this.ClientSize = new System.Drawing.Size(496, 695);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);

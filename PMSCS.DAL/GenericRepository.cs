@@ -13,7 +13,7 @@ namespace PMSCS.DAL
         private OleDbConnection dbcon;
         private OleDbCommand dbCmd = new OleDbCommand();
         //parameter from mdsaputra.udl
-        private String dbParam = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Projects\C#\PMSCS\StoppingDB.mdb;Persist Security Info=False";
+        private String dbParam = @"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=.\StoppingDB.mdb;Persist Security Info=False";
         public GenericRepository()
         {
             dbcon = new OleDbConnection(dbParam);
