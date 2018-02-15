@@ -8,5 +8,6 @@ namespace PMSCS.DAL
 {
     public class StoppingRepository:GenericRepository, IStoppingRepository
     {
+
     }
 }

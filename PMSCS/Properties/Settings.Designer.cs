@@ -36,7 +36,7 @@ namespace PMSCS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.15.0;Data Source=|DataDirectory|\\StoppingDB.accdb")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.15.0;Data Source=|DataDirectory|\\.accdb")]
         public string StoppingDBConnectionString {
             get {
                 return ((string)(this["StoppingDBConnectionString"]));
