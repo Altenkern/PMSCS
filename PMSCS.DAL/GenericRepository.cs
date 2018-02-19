@@ -17,11 +17,11 @@ namespace PMSCS.DAL
         {
             dbcon = new OleDbConnection(dbParam);
         }
-        public GenericRepository(string databeseConnectionString):base()
+        public GenericRepository(string databeseConnectionString) : base()
         {
             dbParam = databeseConnectionString;
         }
-        
+
         public bool Insert(string insertValue)
         {
             dbcon.Open();

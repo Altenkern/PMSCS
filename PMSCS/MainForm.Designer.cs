@@ -32,20 +32,21 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxShift = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxMachineNumber = new System.Windows.Forms.TextBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.checkBoxShift = new System.Windows.Forms.CheckBox();
             this.ColumnErorCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStoppingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonStatsForm = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(275, 643);
+            this.buttonSave.Location = new System.Drawing.Point(359, 643);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(122, 40);
             this.buttonSave.TabIndex = 1;
@@ -73,6 +74,17 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Додавання нових записів";
+            // 
+            // checkBoxShift
+            // 
+            this.checkBoxShift.AutoSize = true;
+            this.checkBoxShift.Location = new System.Drawing.Point(368, 46);
+            this.checkBoxShift.Name = "checkBoxShift";
+            this.checkBoxShift.Size = new System.Drawing.Size(90, 21);
+            this.checkBoxShift.TabIndex = 7;
+            this.checkBoxShift.Text = "1-а зміна";
+            this.checkBoxShift.UseVisualStyleBackColor = true;
+            this.checkBoxShift.CheckedChanged += new System.EventHandler(this.checkBoxShift_CheckedChanged);
             // 
             // label1
             // 
@@ -111,17 +123,6 @@
             this.dataGridView.Size = new System.Drawing.Size(471, 528);
             this.dataGridView.TabIndex = 11;
             // 
-            // checkBoxShift
-            // 
-            this.checkBoxShift.AutoSize = true;
-            this.checkBoxShift.Location = new System.Drawing.Point(368, 46);
-            this.checkBoxShift.Name = "checkBoxShift";
-            this.checkBoxShift.Size = new System.Drawing.Size(90, 21);
-            this.checkBoxShift.TabIndex = 7;
-            this.checkBoxShift.Text = "1-а зміна";
-            this.checkBoxShift.UseVisualStyleBackColor = true;
-            this.checkBoxShift.CheckedChanged += new System.EventHandler(this.checkBoxShift_CheckedChanged);
-            // 
             // ColumnErorCode
             // 
             this.ColumnErorCode.HeaderText = "Код помилки";
@@ -134,11 +135,22 @@
             this.ColumnStoppingTime.Name = "ColumnStoppingTime";
             this.ColumnStoppingTime.Width = 155;
             // 
+            // buttonStatsForm
+            // 
+            this.buttonStatsForm.Location = new System.Drawing.Point(9, 643);
+            this.buttonStatsForm.Name = "buttonStatsForm";
+            this.buttonStatsForm.Size = new System.Drawing.Size(122, 40);
+            this.buttonStatsForm.TabIndex = 12;
+            this.buttonStatsForm.Text = "Статистика";
+            this.buttonStatsForm.UseVisualStyleBackColor = true;
+            this.buttonStatsForm.Click += new System.EventHandler(this.buttonStatsForm_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(496, 695);
+            this.Controls.Add(this.buttonStatsForm);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonSave);
@@ -166,6 +178,7 @@
         private System.Windows.Forms.CheckBox checkBoxShift;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnErorCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStoppingTime;
+        private System.Windows.Forms.Button buttonStatsForm;
     }
 }
 

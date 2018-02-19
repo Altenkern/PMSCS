@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using PMSCS.DAL;
+using System.Data.OleDb;
+
 
 
 
@@ -21,46 +23,42 @@ namespace PMSCS
             grdbg = new GenericRepository();
             InitializeComponent();
         }
-        class test
+        public class test
         {
-            public int a;
-            public string b;
+            public string a { get; set; }
+            public string b { get; set; }
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            List<string> srtlist = new List<string>();
-            for(int i = 0; i<10; i++)
-            {
-                string tempstring = i.ToString();
-                srtlist.Add(tempstring);
-            }
-            string[,] strarr = new string[ 30,30];
-            for(int i = 0; i<20; i++)
-            {
-                for(int j = 0; j<20; j++)
-                {
-                    strarr[i, j] = "1";
-                }
-            }
-            List<test> tstlist = new List<test>();
-            for (int i = 0; i < 20; i++)
-            {
-                for (int j = 0; j < 20; j++)
-                {
-                    string temp = j.ToString();
-                    tstlist.Add(new test() {a=i,b= temp });
-                }
-            }
-            //dataGridView1.DataSource = srtlist;
-            ////dataGridView1.DataSource = strarr;
-            int a = 0;
-            
+            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Projects\C#\PMSCS\StoppingDB.mdb;Persist Security Info=False");  //create connection
+            con.Open();
+            OleDbTransaction trans = con.BeginTransaction();            //begin transaction
+                                                                        //create command
+            OleDbCommand cmd = new OleDbCommand("select * from Stoping", con, trans);
+
+            //create DataGridView and its DataSource
+            DataGridView gv = new DataGridView();
+            DataTable tbl = new DataTable("source");
+            //fill DataTable
+            OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
+            adapter.Fill(tbl);
+
+            gv.DataSource = tbl;
+
+            //Display DataGridView
+            Form f = new Form();
+            f.Controls.Add(gv);
+            gv.Dock = DockStyle.Fill;
+            f.ShowDialog();
+
+            //finaliaze
+            trans.Commit();
+            con.Close();
         }
         
         private void DebugForm_Load(object sender, EventArgs e)
         {
-            grdbg.Select("Stoping");
-
+            //grdbg.Select("Stoping");
         }
     }
 }
