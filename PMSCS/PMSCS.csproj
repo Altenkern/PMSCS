@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DebugForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebugForm.Designer.cs">
+      <DependentUpon>DebugForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,7 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Stopping.cs" />
+    <EmbeddedResource Include="DebugForm.resx">
+      <DependentUpon>DebugForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,6 +92,10 @@
     <ProjectReference Include="..\PMSCS.DAL\PMSCS.DAL.csproj">
       <Project>{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}</Project>
       <Name>PMSCS.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PMSCS.ViewModels\PMSCS.ViewModels.csproj">
+      <Project>{a3571c43-5bcd-49dd-94fa-deaad49f9fd4}</Project>
+      <Name>PMSCS.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

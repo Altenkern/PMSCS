@@ -9,15 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using PMSCS.DAL;
 
+
 namespace PMSCS
 {
     public partial class MainForm : Form
     {
-        public IStoppingRepository stoppingRepository ;
-        public static List<Stopping> stoppingList = new List<Stopping>();
+        public GenericRepository stoppingRepository ;
+        
         public MainForm()
         {
-            stoppingRepository = new StoppingRepository();
+            stoppingRepository = new GenericRepository();
             InitializeComponent();
         }
 
@@ -25,7 +26,9 @@ namespace PMSCS
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "stoppingDBDataSet.Stoping". При необходимости она может быть перемещена или удалена.
             //this.stopingTableAdapter.Fill(this.stoppingDBDataSet.Stoping);
-           // dbcon.Open();
+            // dbcon.Open();
+            DebugForm deb = new DebugForm();
+            deb.Show();
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -81,12 +84,6 @@ namespace PMSCS
             }
         }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    string str = dataGridView.Rows[0].Cells[0].Value.ToString();
-        //    string str1 = dataGridView.Rows[1].Cells[1].Value.ToString();
-        //    string str2 = dataGridView.Rows[2].Cells[1].Value.ToString();
-        //    int index = dataGridView.Rows.Count;
-        //}
+        
     }
 }

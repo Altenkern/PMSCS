@@ -6,6 +6,11 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSCS", "PMSCS\PMSCS.csproj", "{44A0B099-936D-480B-BE4A-91BECEEA4008}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSCS.DAL", "PMSCS.DAL\PMSCS.DAL.csproj", "{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A3571C43-5BCD-49DD-94FA-DEAAD49F9FD4} = {A3571C43-5BCD-49DD-94FA-DEAAD49F9FD4}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMSCS.ViewModels", "PMSCS.ViewModels\PMSCS.ViewModels.csproj", "{A3571C43-5BCD-49DD-94FA-DEAAD49F9FD4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +26,10 @@ Global
 		{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E425D68-E4D8-4870-B3CB-8D32A4F2D523}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3571C43-5BCD-49DD-94FA-DEAAD49F9FD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3571C43-5BCD-49DD-94FA-DEAAD49F9FD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3571C43-5BCD-49DD-94FA-DEAAD49F9FD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3571C43-5BCD-49DD-94FA-DEAAD49F9FD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
