@@ -8,78 +8,69 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using PMSCS.DAL;
 
 namespace PMSCS
 {
     public partial class FormStatistics : Form
     {
+        public GenericRepository gr;
+        public int shiftFOD = 1;
+        
+
         public FormStatistics()
         {
+            gr = new GenericRepository();
             InitializeComponent();
         }
-
-        private void checkBoxShift_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxShift.Checked == true)
-            {
-                checkBoxShift.Text = "2-га зміна";
-            }
-            else
-            {
-                checkBoxShift.Text = "1-а зміна";
-            }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxShift.Checked == true)
-            {
-                checkBoxShift.Text = "2-га зміна";
-            }
-            else
-            {
-                checkBoxShift.Text = "1-а зміна";
-            }
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxShift.Checked == true)
-            {
-                checkBoxShift.Text = "2-га зміна";
-            }
-            else
-            {
-                checkBoxShift.Text = "1-а зміна";
-            }
-        }
-
+        
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Projects\C#\PMSCS\StoppingDB.mdb;Persist Security Info=False");  //create connection
-            con.Open();
-            OleDbTransaction trans = con.BeginTransaction();            //begin transaction
-                                                                        //create command
-            OleDbCommand cmd = new OleDbCommand("select * from Stoping", con, trans);
-
-            //create DataGridView and its DataSource
+            dataGridViewStats.Update();
             
-            DataTable tbl = new DataTable("source");
-            //fill DataTable
-            OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
-            adapter.Fill(tbl);
+            string date = dateTimePickerFOD.Value.ToShortDateString();
+            date = gr.ReplaceDayAndMonth(date);
+            gr.Select(date, shiftFOD);
 
-            dataGridView1.DataSource = tbl;
 
-            //Display DataGridView
-            
-            //Controls.Add(dataGridView1);
-            //dataGridView1.Dock = DockStyle.Fill;
-            
+        }
 
-            //finaliaze
-            trans.Commit();
-            con.Close();
+        private void checkBoxShiftFOD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxShiftFOD.Checked == true)
+            {
+                checkBoxShiftFOD.Text = "2-га зміна";
+                shiftFOD = 2;
+            }
+            else
+            {
+                checkBoxShiftFOD.Text = "1-а зміна";
+                shiftFOD = 1;
+            }
+        }
+
+        private void checkBoxShiftFDDS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxShiftFDDS.Checked == true)
+            {
+                checkBoxShiftFDDS.Text = "2-га зміна";
+            }
+            else
+            {
+                checkBoxShiftFDDS.Text = "1-а зміна";
+            }
+        }
+
+        private void checkBoxShiftFDDF_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxShiftFDDF.Checked == true)
+            {
+                checkBoxShiftFDDF.Text = "2-га зміна";
+            }
+            else
+            {
+                checkBoxShiftFDDF.Text = "1-а зміна";
+            }
         }
     }
 }

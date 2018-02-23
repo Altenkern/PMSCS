@@ -24,9 +24,6 @@ namespace PMSCS
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "stoppingDBDataSet.Stoping". При необходимости она может быть перемещена или удалена.
-            //this.stopingTableAdapter.Fill(this.stoppingDBDataSet.Stoping);
-            // dbcon.Open();
             //DebugForm deb = new DebugForm();
             //deb.Show();
         }

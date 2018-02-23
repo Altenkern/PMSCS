@@ -23,37 +23,28 @@ namespace PMSCS
             grdbg = new GenericRepository();
             InitializeComponent();
         }
-        public class test
+        public class Test
         {
-            public string a { get; set; }
+            public int a { get; set; }
             public string b { get; set; }
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            OleDbConnection con = new OleDbConnection(@"Provider=Microsoft.Jet.OLEDB.4.0;Data Source=E:\Projects\C#\PMSCS\StoppingDB.mdb;Persist Security Info=False");  //create connection
-            con.Open();
-            OleDbTransaction trans = con.BeginTransaction();            //begin transaction
-                                                                        //create command
-            OleDbCommand cmd = new OleDbCommand("select * from Stoping", con, trans);
-
-            //create DataGridView and its DataSource
-            DataGridView gv = new DataGridView();
-            DataTable tbl = new DataTable("source");
-            //fill DataTable
-            OleDbDataAdapter adapter = new OleDbDataAdapter(cmd);
-            adapter.Fill(tbl);
-
-            gv.DataSource = tbl;
-
-            //Display DataGridView
-            Form f = new Form();
-            f.Controls.Add(gv);
-            gv.Dock = DockStyle.Fill;
-            f.ShowDialog();
-
-            //finaliaze
-            trans.Commit();
-            con.Close();
+            List<Test> testlist = new List<Test>();
+            testlist.Add(new Test { a = 1, b = "11" });
+            testlist.Add(new Test { a = 2, b = "11" });
+            testlist.Add(new Test { a = 3, b = "11" });
+            testlist.Add(new Test { a = 4, b = "11" });
+            testlist.Add(new Test { a = 5, b = "11" });
+            testlist.Add(new Test { a = 6, b = "11" });
+            testlist.Add(new Test { a = 7, b = "11" });
+           // dataGridView1.DataSource = testlist;
+           for(int i =0; i< testlist.Count; i++)
+            {
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[i].Cells["Column1"].Value = testlist[i].a;
+                dataGridView1.Rows[i].Cells["Column2"].Value = testlist[i].b;
+            }
         }
         
         private void DebugForm_Load(object sender, EventArgs e)

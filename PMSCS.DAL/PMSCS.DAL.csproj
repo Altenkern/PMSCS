@@ -44,5 +44,11 @@
     <Compile Include="IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PMSCS.ViewModels\PMSCS.ViewModels.csproj">
+      <Project>{a3571c43-5bcd-49dd-94fa-deaad49f9fd4}</Project>
+      <Name>PMSCS.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
