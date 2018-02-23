@@ -152,11 +152,11 @@ namespace PMSCS.DAL
 
                 //p.Date != date
                 //&& p.Shift != shift).ToList();
-               
-                if (shift==1)
+
+                if (shift == 1)
                 {
-                    List<Stopping> k = st.Where(p => p.Date == date&&p.Shift==2).ToList();
-                    foreach(var item in k)
+                    List<Stopping> k = st.Where(p => p.Date == date && p.Shift == 2).ToList();
+                    foreach (var item in k)
                     {
                         st.Remove(item);
                     }
@@ -207,38 +207,40 @@ namespace PMSCS.DAL
             {
                 if (list.Exists(p => p.MachineNumber == i))
                 {
+                    var kokus = list.Where(p =>
+                           p.MachineNumber == i && !StaticClass.IfErrorInStopping(p.Reason)).Count();
+                    var lelus=720;
+                    if (kokus != 0)
+                    {
+                         lelus = ((720 - list.Where(p => p.MachineNumber == i /*&&!StaticClass.IfErrorInStopping(p.Reason)*/).Sum(p => p.StoppingTime)) / kokus);
 
+                    }
                     StaticticsRow s = new StaticticsRow()
                     {
                         MachineNumber = i,
                         UnplannedStopingsTime = list.Where(p =>
                         p.MachineNumber == i &&
                         !StaticClass.IfErrorInStopping(p.Reason)
-                        ).Sum(p => p.StoppingTime),
+                            ).Sum(p => p.StoppingTime),
 
                         PlannedStopingsTime = list.Where(p =>
                         p.MachineNumber == i &&
                         StaticClass.IfErrorInStopping(p.Reason)
-                        ).Sum(p => p.StoppingTime),
+                            ).Sum(p => p.StoppingTime),
 
                         PlannedStoppings = list.Where(p =>
                         p.MachineNumber == i &&
                         StaticClass.IfErrorInStopping(p.Reason)
-                        ).Count(),
+                            ).Count(),
 
                         UnplannedStoppings = list.Where(p =>
                         p.MachineNumber == i &&
                         !StaticClass.IfErrorInStopping(p.Reason)
-                        ).Count(),
+                            ).Count(),
 
                         WorkingTime = 720 - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime),
 
-                        MTBF = ((720 - list.Where(p =>
-                        p.MachineNumber == i &&
-                        !StaticClass.IfErrorInStopping(p.Reason)
-                        ).Sum(p => p.StoppingTime)) /
-                        list.Where(p =>
-                         p.MachineNumber == i).Count())
+                        MTBF = lelus
                     };
                     l.Add(s);
                 }
