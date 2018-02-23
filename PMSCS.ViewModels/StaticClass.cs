@@ -8,13 +8,19 @@ namespace PMSCS
 {
     public static class StaticClass
     {
-        public static List<Stopping> StoppingsList;
+        public static List<StaticticsRow> StoppingsList;
         public static Dictionary<int, bool> erors;
 
         static StaticClass()
         {
-            StoppingsList = new List<Stopping>();
+            StoppingsList = new List<StaticticsRow>();
             erors = new Dictionary<int, bool>();
+            SetDictionary();
+
+
+        }
+        static void SetDictionary()
+        {
             erors.Add(1, true);
             erors.Add(2, true);
             erors.Add(3, true);
@@ -75,6 +81,10 @@ namespace PMSCS
             erors.Add(83, true);
             erors.Add(84, true);
 
+        }
+        public static bool IfErrorInStopping( int error)
+        {
+            return erors.FirstOrDefault(p=>p.Key==error).Value;
         }
     }
 }

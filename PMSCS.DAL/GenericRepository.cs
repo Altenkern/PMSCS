@@ -43,73 +43,142 @@ namespace PMSCS.DAL
 
         }
 
-        public object[,] Select(string from1, params string[][] data)
+        //public object[,] Select(string from1, params string[][] data)
+        //{
+
+        //    dbcon.Open();
+        //    dbCmd.Connection = dbcon;
+        //    string command = "SELECT ";
+        //    if (data.Length != 0)
+        //    {
+        //        for (int i = 0; i < data[0].Length; i++)
+        //        {
+        //            command += data[0][i];
+        //            if (i < data[0].Length - 1)
+        //            {
+        //                command += ",";
+        //            }
+        //            else
+        //            {
+        //                command += " ";
+        //            }
+        //        }
+        //    }
+        //    else
+        //    {
+        //        command += "*";
+        //    }
+        //    command += " WHERE ";
+        //    for (int i = 0; i < data[1].Length; i++)
+        //    {
+        //        command += data[1][i];
+        //        if (i < data[1].Length - 1)
+        //        {
+        //            command += ",";
+        //        }
+        //        else
+        //        {
+        //            command += " ";
+        //        }
+        //    }
+        //    command += "from " + from1;
+        //    //sdelat viborky
+        //    return null;
+        //}
+        public bool Select(int shift, string date)
         {
+            try
+            {
+                string SelectCommand = "SELECT MachineNumber, Reason, StoppingTime FROM Stoping WHERE StDate = #" +
+                    date.Replace('.', '/') +
+                    "# AND Shift = " +
+                    shift.ToString();
+                dbcon.Open();
+                byte andrey = 228;
+                var command = new OleDbCommand(SelectCommand, dbcon);
+                var reader = command.ExecuteReader();
+                List<Stopping> st = new List<Stopping>();
+                while (reader.Read())
+                {
+                    Stopping stopping = new Stopping();
+                    stopping.MachineNumber = int.Parse(reader[0].ToString());
+                    stopping.Reason = int.Parse(reader[1].ToString());
+                    stopping.StoppingTime = int.Parse(reader[2].ToString());
 
-            dbcon.Open();
-            dbCmd.Connection = dbcon;
-            string command = "SELECT ";
-            if (data.Length != 0)
-            {
-                for (int i = 0; i < data[0].Length; i++)
-                {
-                    command += data[0][i];
-                    if (i < data[0].Length - 1)
-                    {
-                        command += ",";
-                    }
-                    else
-                    {
-                        command += " ";
-                    }
+                    st.Add(stopping);
                 }
+                dbcon.Close();
+                StaticClass.StoppingsList = GenerateStatisticsRowStaticList(st);
+                return true;
             }
-            else
+            catch
             {
-                command += "*";
+                dbcon.Close();
+                return false;
             }
-            command += " WHERE ";
-            for (int i = 0; i < data[1].Length; i++)
-            {
-                command += data[1][i];
-                if (i < data[1].Length - 1)
-                {
-                    command += ",";
-                }
-                else
-                {
-                    command += " ";
-                }
-            }
-            command += "from " + from1;
-            //sdelat viborky
-            return null;
+
         }
-        public string Select(string date, int shift)
-        {          
-            string SelectCommand = "SELECT MachineNumber, Reason, StoppingTime FROM Stoping WHERE StDate = #"+ 
-                date.Replace('.', '/') +
-                "# AND Shift = " + 
-                shift.ToString();
-            dbcon.Open();
-            byte andrey = 228;
-            var command = new OleDbCommand(SelectCommand, dbcon);
-            var reader = command.ExecuteReader();
-            while (reader.Read())
+        public bool Select(int shift, string date, int shift2, string date2)
+        {
+            try
             {
-                Stopping stopping = new Stopping();
-                stopping.MachineNumber = int.Parse(reader[0].ToString());
-                stopping.Reason = int.Parse(reader[1].ToString());
-                stopping.StoppingTime = int.Parse(reader[2].ToString());
+                string SelectCommand = "SELECT MachineNumber, Reason, StoppingTime, StDate, Shift FROM Stoping WHERE StDate BETWEEN #" +
+                    date.Replace('.', '/') +
+                    "#  AND #" +
+                    date2.Replace('.', '/') + "#";
+                dbcon.Open();
+                byte andrey = 228;
+                var command = new OleDbCommand(SelectCommand, dbcon);
+                var reader = command.ExecuteReader();
+                List<Stopping> st = new List<Stopping>();
 
-                StaticClass.StoppingsList.Add(stopping);
+                while (reader.Read())
+                {
+                    Stopping stopping = new Stopping();
+                    stopping.MachineNumber = int.Parse(reader[0].ToString());
+                    stopping.Reason = int.Parse(reader[1].ToString());
+                    stopping.StoppingTime = int.Parse(reader[2].ToString());
+                    stopping.Shift = int.Parse(reader[4].ToString());
+                    stopping.Date = ReplaceDayAndMonth((Convert.ToDateTime(reader[3])).ToShortDateString().ToString());
+
+                    st.Add(stopping);
+                }
+                dbcon.Close();
+                //  var test = st.Where(p =>
+
+                //  p.Date == date & p.Shift == shift
+                //  ).ToList();
+                //  var test2 = test.Where(p =>
+
+                //p.Date != date
+                //&& p.Shift != shift).ToList();
+               
+                if (shift==1)
+                {
+                    List<Stopping> k = st.Where(p => p.Date == date&&p.Shift==2).ToList();
+                    foreach(var item in k)
+                    {
+                        st.Remove(item);
+                    }
+                }
+                if (shift2 == 2)
+                {
+                    List<Stopping> k = st.Where(p => p.Date == date2 && p.Shift == 1).ToList();
+                    foreach (var item in k)
+                    {
+                        st.Remove(item);
+                    }
+                }
+                StaticClass.StoppingsList = GenerateStatisticsRowStaticList(st);
+
+                return true;
             }
-            dbcon.Close();
+            catch
+            {
+                dbcon.Close();
+                return false;
+            }
 
-            List<Stopping> st = StaticClass.StoppingsList;
-            
-
-            return SelectCommand;
         }
         public string SelectStatementGenerator(string date1, int shift1, string date2, int shift2)
         {
@@ -127,6 +196,55 @@ namespace PMSCS.DAL
             dateArr[4] = mem[1];
             string dateRep = new string(dateArr);
             return dateRep;
+        }
+        public List<StaticticsRow> GenerateStatisticsRowStaticList(List<Stopping> list)
+        {
+            List<StaticticsRow> l = new List<StaticticsRow>();
+            var max = list.Max(p => p.MachineNumber);
+
+            var tempList = new List<Stopping>();
+            for (int i = 0; i <= max; i++)
+            {
+                if (list.Exists(p => p.MachineNumber == i))
+                {
+
+                    StaticticsRow s = new StaticticsRow()
+                    {
+                        MachineNumber = i,
+                        UnplannedStopingsTime = list.Where(p =>
+                        p.MachineNumber == i &&
+                        !StaticClass.IfErrorInStopping(p.Reason)
+                        ).Sum(p => p.StoppingTime),
+
+                        PlannedStopingsTime = list.Where(p =>
+                        p.MachineNumber == i &&
+                        StaticClass.IfErrorInStopping(p.Reason)
+                        ).Sum(p => p.StoppingTime),
+
+                        PlannedStoppings = list.Where(p =>
+                        p.MachineNumber == i &&
+                        StaticClass.IfErrorInStopping(p.Reason)
+                        ).Count(),
+
+                        UnplannedStoppings = list.Where(p =>
+                        p.MachineNumber == i &&
+                        !StaticClass.IfErrorInStopping(p.Reason)
+                        ).Count(),
+
+                        WorkingTime = 720 - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime),
+
+                        MTBF = ((720 - list.Where(p =>
+                        p.MachineNumber == i &&
+                        !StaticClass.IfErrorInStopping(p.Reason)
+                        ).Sum(p => p.StoppingTime)) /
+                        list.Where(p =>
+                         p.MachineNumber == i).Count())
+                    };
+                    l.Add(s);
+                }
+            }
+            return l;
+
         }
     }
 }

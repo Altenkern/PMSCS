@@ -29,79 +29,96 @@
         private void InitializeComponent()
         {
             this.dataGridViewStats = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBoxShiftFOD = new System.Windows.Forms.CheckBox();
-            this.dateTimePickerFOD = new System.Windows.Forms.DateTimePicker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAddEndDate = new System.Windows.Forms.Button();
+            this.lbSelectInfo = new System.Windows.Forms.Label();
+            this.buttonShow = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.checkBoxShiftFDDF = new System.Windows.Forms.CheckBox();
             this.checkBoxShiftFDDS = new System.Windows.Forms.CheckBox();
             this.dateTimePickerFDDF = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerFDDS = new System.Windows.Forms.DateTimePicker();
-            this.buttonShow = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStats)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewStats
             // 
             this.dataGridViewStats.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewStats.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6,
+            this.Column7});
             this.dataGridViewStats.Location = new System.Drawing.Point(13, 150);
             this.dataGridViewStats.Name = "dataGridViewStats";
             this.dataGridViewStats.RowTemplate.Height = 24;
             this.dataGridViewStats.Size = new System.Drawing.Size(1408, 497);
             this.dataGridViewStats.TabIndex = 0;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.checkBoxShiftFOD);
-            this.groupBox1.Controls.Add(this.dateTimePickerFOD);
-            this.groupBox1.Location = new System.Drawing.Point(13, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(360, 131);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Обрати дату";
-            // 
-            // checkBoxShiftFOD
-            // 
-            this.checkBoxShiftFOD.AutoSize = true;
-            this.checkBoxShiftFOD.Location = new System.Drawing.Point(236, 36);
-            this.checkBoxShiftFOD.Name = "checkBoxShiftFOD";
-            this.checkBoxShiftFOD.Size = new System.Drawing.Size(90, 21);
-            this.checkBoxShiftFOD.TabIndex = 8;
-            this.checkBoxShiftFOD.Text = "1-а зміна";
-            this.checkBoxShiftFOD.UseVisualStyleBackColor = true;
-            this.checkBoxShiftFOD.CheckedChanged += new System.EventHandler(this.checkBoxShiftFOD_CheckedChanged);
-            // 
-            // dateTimePickerFOD
-            // 
-            this.dateTimePickerFOD.Location = new System.Drawing.Point(30, 36);
-            this.dateTimePickerFOD.Name = "dateTimePickerFOD";
-            this.dateTimePickerFOD.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePickerFOD.TabIndex = 3;
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnAddEndDate);
+            this.groupBox2.Controls.Add(this.lbSelectInfo);
+            this.groupBox2.Controls.Add(this.buttonShow);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.checkBoxShiftFDDF);
             this.groupBox2.Controls.Add(this.checkBoxShiftFDDS);
             this.groupBox2.Controls.Add(this.dateTimePickerFDDF);
             this.groupBox2.Controls.Add(this.dateTimePickerFDDS);
-            this.groupBox2.Location = new System.Drawing.Point(1061, 12);
+            this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(360, 131);
+            this.groupBox2.Size = new System.Drawing.Size(1409, 131);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Діапазон дат";
+            this.groupBox2.Text = "PMSCS";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // btnAddEndDate
+            // 
+            this.btnAddEndDate.Location = new System.Drawing.Point(34, 97);
+            this.btnAddEndDate.Name = "btnAddEndDate";
+            this.btnAddEndDate.Size = new System.Drawing.Size(356, 24);
+            this.btnAddEndDate.TabIndex = 14;
+            this.btnAddEndDate.Text = "Додати кінцеву дату(необов`язково)";
+            this.btnAddEndDate.UseVisualStyleBackColor = true;
+            this.btnAddEndDate.Click += new System.EventHandler(this.btnAddEndDate_Click);
+            // 
+            // lbSelectInfo
+            // 
+            this.lbSelectInfo.AutoSize = true;
+            this.lbSelectInfo.Location = new System.Drawing.Point(837, 54);
+            this.lbSelectInfo.Name = "lbSelectInfo";
+            this.lbSelectInfo.Size = new System.Drawing.Size(420, 17);
+            this.lbSelectInfo.TabIndex = 13;
+            this.lbSelectInfo.Text = "NadiusaYarek pridumae nazvaniedlya wogo ale kogoya obmanuu";
+            // 
+            // buttonShow
+            // 
+            this.buttonShow.Location = new System.Drawing.Point(1263, 32);
+            this.buttonShow.Name = "buttonShow";
+            this.buttonShow.Size = new System.Drawing.Size(140, 62);
+            this.buttonShow.TabIndex = 3;
+            this.buttonShow.Text = "Вивести дані";
+            this.buttonShow.UseVisualStyleBackColor = true;
+            this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 85);
+            this.label2.Location = new System.Drawing.Point(453, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 17);
             this.label2.TabIndex = 12;
@@ -110,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 42);
+            this.label1.Location = new System.Drawing.Point(33, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(28, 17);
             this.label1.TabIndex = 11;
@@ -119,7 +136,7 @@
             // checkBoxShiftFDDF
             // 
             this.checkBoxShiftFDDF.AutoSize = true;
-            this.checkBoxShiftFDDF.Location = new System.Drawing.Point(253, 80);
+            this.checkBoxShiftFDDF.Location = new System.Drawing.Point(700, 54);
             this.checkBoxShiftFDDF.Name = "checkBoxShiftFDDF";
             this.checkBoxShiftFDDF.Size = new System.Drawing.Size(90, 21);
             this.checkBoxShiftFDDF.TabIndex = 10;
@@ -130,7 +147,7 @@
             // checkBoxShiftFDDS
             // 
             this.checkBoxShiftFDDS.AutoSize = true;
-            this.checkBoxShiftFDDS.Location = new System.Drawing.Point(253, 39);
+            this.checkBoxShiftFDDS.Location = new System.Drawing.Point(280, 58);
             this.checkBoxShiftFDDS.Name = "checkBoxShiftFDDS";
             this.checkBoxShiftFDDS.Size = new System.Drawing.Size(90, 21);
             this.checkBoxShiftFDDS.TabIndex = 9;
@@ -140,42 +157,63 @@
             // 
             // dateTimePickerFDDF
             // 
-            this.dateTimePickerFDDF.Location = new System.Drawing.Point(47, 80);
+            this.dateTimePickerFDDF.Location = new System.Drawing.Point(494, 54);
             this.dateTimePickerFDDF.Name = "dateTimePickerFDDF";
             this.dateTimePickerFDDF.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerFDDF.TabIndex = 5;
             // 
             // dateTimePickerFDDS
             // 
-            this.dateTimePickerFDDS.Location = new System.Drawing.Point(47, 38);
+            this.dateTimePickerFDDS.Location = new System.Drawing.Point(74, 57);
             this.dateTimePickerFDDS.Name = "dateTimePickerFDDS";
             this.dateTimePickerFDDS.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerFDDS.TabIndex = 4;
             // 
-            // buttonShow
+            // Column1
             // 
-            this.buttonShow.Location = new System.Drawing.Point(652, 32);
-            this.buttonShow.Name = "buttonShow";
-            this.buttonShow.Size = new System.Drawing.Size(140, 62);
-            this.buttonShow.TabIndex = 3;
-            this.buttonShow.Text = "Вивести дані";
-            this.buttonShow.UseVisualStyleBackColor = true;
-            this.buttonShow.Click += new System.EventHandler(this.buttonShow_Click);
+            this.Column1.HeaderText = "Пакувана машина";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Працювала, хв";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Планові зупинки, хв";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Не планові зупинки, хв";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Кількість планових зупинок";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Кількість непланових зупинок";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "MTBF";
+            this.Column7.Name = "Column7";
             // 
             // FormStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1433, 659);
-            this.Controls.Add(this.buttonShow);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridViewStats);
             this.Name = "FormStatistics";
             this.Text = "FormStatistics";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStats)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -185,16 +223,22 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewStats;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DateTimePicker dateTimePickerFOD;
         private System.Windows.Forms.DateTimePicker dateTimePickerFDDF;
         private System.Windows.Forms.DateTimePicker dateTimePickerFDDS;
-        private System.Windows.Forms.CheckBox checkBoxShiftFOD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBoxShiftFDDF;
         private System.Windows.Forms.CheckBox checkBoxShiftFDDS;
         private System.Windows.Forms.Button buttonShow;
+        private System.Windows.Forms.CheckBox checkBoxShiftFDDF;
+        private System.Windows.Forms.Label lbSelectInfo;
+        private System.Windows.Forms.Button btnAddEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
     }
 }

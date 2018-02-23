@@ -13,7 +13,7 @@ namespace PMSCS
         public int PlannedStopingsTime { get; set; }
         public int UnplannedStopingsTime { get; set; }
         public int UnplannedStoppings { get; set; }
-        public int PlannedStopping { get; set; }
+        public int PlannedStoppings { get; set; }
         public float MTBF { get; set; }
     }
 }
