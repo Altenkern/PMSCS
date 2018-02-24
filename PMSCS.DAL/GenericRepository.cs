@@ -24,6 +24,8 @@ namespace PMSCS.DAL
             dbParam = databeseConnectionString;
         }
 
+        public int ShiftCount;
+
         public bool Insert(string insertValue)
         {
             dbcon.Open();
@@ -162,12 +164,12 @@ namespace PMSCS.DAL
                     var lelus=720;
                     if (kokus != 0)
                     {
-                         lelus = ((720 - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime)) / kokus);
+                         lelus = (((ShiftCount * 720) - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime)) / kokus);
 
                     }
                     else
                     {
-                        lelus = ((720 - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime)));
+                        lelus = (((ShiftCount * 720) - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime)));
                     }
                     StaticticsRow s = new StaticticsRow()
                     {
@@ -192,7 +194,7 @@ namespace PMSCS.DAL
                         !StaticClass.IfErrorInStopping(p.Reason)
                             ).Count(),
 
-                        WorkingTime = 720 - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime),
+                        WorkingTime = (ShiftCount * 720) - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime),
 
                         MTBF = lelus
                     };

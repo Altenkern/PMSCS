@@ -30,43 +30,51 @@ namespace PMSCS
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            int rowCount = dataGridView.Rows.Count - 1;
-
-            string shift;
-
-            if (checkBoxShift.Checked == true)
+            if (textBoxMachineNumber.Text != "")
             {
-                shift = "2";
+                int rowCount = dataGridView.Rows.Count - 1;
+
+                string shift;
+
+                if (checkBoxShift.Checked == true)
+                {
+                    shift = "2";
+                }
+                else
+                {
+                    shift = "1";
+                }
+
+                for (int i = 0; i < rowCount; i++)
+                {
+                    var insertText = "insert into Stoping (StDate,MachineNumber,Reason,StoppingTime,Shift)  values ('"
+                    + this.dateTimePicker.Value.ToShortDateString() + "','"
+                    + this.textBoxMachineNumber.Text + "','"
+                    + dataGridView.Rows[i].Cells[0].Value.ToString() + "','"
+                    + dataGridView.Rows[i].Cells[1].Value.ToString() + "','"
+                    + shift
+                    + "');";
+
+                    var temp = stoppingRepository.Insert(insertText);
+                    if (i == rowCount - 1)
+                    {
+                        if (temp == true)
+                        {
+
+                            MessageBox.Show("Записи успішно додані");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Помилка запису!");
+                        }
+                    }
+                }
+                dataGridView.Rows.Clear();
             }
             else
             {
-                shift = "1";
+                MessageBox.Show("Вкажіть номер машини");
             }
-
-            for (int i = 0; i<rowCount; i++)
-            {
-                var insertText= "insert into Stoping (StDate,MachineNumber,Reason,StoppingTime,Shift)  values ('" 
-                + this.dateTimePicker.Value.ToShortDateString() + "','"
-                + this.textBoxMachineNumber.Text + "','"
-                + dataGridView.Rows[i].Cells[0].Value.ToString() + "','"
-                + dataGridView.Rows[i].Cells[1].Value.ToString() + "','"
-                + shift
-                + "');";
-
-                var temp = stoppingRepository.Insert(insertText);
-                if(i == rowCount - 1)
-                {
-                     if (temp == true)
-                        {
-
-                        MessageBox.Show("Record Successfuly Added");
-                    }
-                    else
-                    {
-                    MessageBox.Show("Record Fail to Added");
-                    }
-                }
-            }           
         }
 
         private void checkBoxShift_CheckedChanged(object sender, EventArgs e)
@@ -85,6 +93,41 @@ namespace PMSCS
         {
             Form frm = new FormStatistics();
             frm.Show();
+        }
+
+        private void buttonUnused_Click(object sender, EventArgs e)
+        {
+            string shift;
+
+            if (checkBoxShift.Checked == true)
+            {
+                shift = "2";
+            }
+            else
+            {
+                shift = "1";
+            }
+            var insertText = "insert into Stoping (StDate,MachineNumber,Reason,StoppingTime,Shift)  values ('"
+                + this.dateTimePicker.Value.ToShortDateString() + "','"
+                + this.textBoxMachineNumber.Text + "','"
+                + 9.ToString() + "','"
+                + 720.ToString() + "','"
+                + shift
+                + "');";
+
+            var temp = stoppingRepository.Insert(insertText);
+            
+            
+                if (temp == true)
+                {
+
+                    MessageBox.Show("Записи успішно додані");
+                }
+                else
+                {
+                    MessageBox.Show("Помилка запису!");
+                }
+            
         }
     }
 }

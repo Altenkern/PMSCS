@@ -28,6 +28,24 @@ namespace PMSCS
             btnAddEndDate.Text = "Додати кінцеву дату(необов`язково)";
         }
 
+        private void SetShiftCount()
+        {
+            DateTime date1 = dateTimePickerFDDS.Value;
+            int shift1 = checkBoxShiftFDDS.Checked ? 2 : 1;
+            DateTime date2 = dateTimePickerFDDF.Value;
+            int shift2 = checkBoxShiftFDDF.Checked ? 2 : 1;
+
+            int days = (int)(date2 - date1).TotalDays;
+            if (shift1 == shift2)
+            {
+                gr.ShiftCount = (days * 2) + 1;
+            }
+            else
+            {
+                gr.ShiftCount = days * 2;
+            }
+        }
+
         private void buttonShow_Click(object sender, EventArgs e)
         {
             dataGridViewStats.Rows.Clear();
@@ -35,10 +53,10 @@ namespace PMSCS
             int shiftFDDS=checkBoxShiftFDDS.Checked?2:1;
             if (abonent)
             {
-               
+               gr.ShiftCount = 1;
                 if (gr.Select(shiftFDDS, gr.ReplaceDayAndMonth(date)))
                 {
-
+                    
                     //dataGridViewStats.DataSource = StaticClass.StoppingsList;
                     for (int i = 0; i < StaticClass.StoppingsList.Count; i++)
                     {
@@ -57,10 +75,12 @@ namespace PMSCS
             }
             else
             {
+                SetShiftCount();
                 if (gr.Select(shiftFDDS, gr.ReplaceDayAndMonth(date), checkBoxShiftFDDF.Checked ? 2 : 1,gr.ReplaceDayAndMonth(dateTimePickerFDDF.Value.ToShortDateString())))
                 {
-
-                    for (int i = 0; i < StaticClass.StoppingsList.Count; i++)
+                    if (Convert.ToDateTime(date) < dateTimePickerFDDF.Value)
+                    {
+                        for (int i = 0; i < StaticClass.StoppingsList.Count; i++)
                     {
                         dataGridViewStats.Rows.Add();
                         dataGridViewStats.Rows[i].Cells["Column1"].Value = StaticClass.StoppingsList[i].MachineNumber;
@@ -70,26 +90,17 @@ namespace PMSCS
                         dataGridViewStats.Rows[i].Cells["Column5"].Value = StaticClass.StoppingsList[i].PlannedStoppings;
                         dataGridViewStats.Rows[i].Cells["Column6"].Value = StaticClass.StoppingsList[i].UnplannedStoppings;
                         dataGridViewStats.Rows[i].Cells["Column7"].Value = StaticClass.StoppingsList[i].MTBF;
-
                     }
-                    if (Convert.ToDateTime(date)<dateTimePickerFDDF.Value)
-                    {
                         lbSelectInfo.Text = "Вибірка взята по таким датам: " + date + " ... " + dateTimePickerFDDF.Value.ToShortDateString();
                     }
                     else
                     {
-                        lbSelectInfo.Text = "Вибірка взята по таким датам: " + dateTimePickerFDDF.Value.ToShortDateString() + " ... " + date;
+                        MessageBox.Show("Перевірте порядок дат!");
                     }
                     
                 };
             }
-            
-            
-
-
         }
-
-      
 
         private void checkBoxShiftFDDS_CheckedChanged(object sender, EventArgs e)
         {

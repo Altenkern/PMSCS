@@ -40,6 +40,7 @@
             this.ColumnErorCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnStoppingTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonStatsForm = new System.Windows.Forms.Button();
+            this.buttonUnused = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             // 
             this.buttonSave.Location = new System.Drawing.Point(359, 643);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(122, 40);
+            this.buttonSave.Size = new System.Drawing.Size(122, 48);
             this.buttonSave.TabIndex = 1;
             this.buttonSave.Text = "Зберегти";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -139,17 +140,28 @@
             // 
             this.buttonStatsForm.Location = new System.Drawing.Point(9, 643);
             this.buttonStatsForm.Name = "buttonStatsForm";
-            this.buttonStatsForm.Size = new System.Drawing.Size(122, 40);
+            this.buttonStatsForm.Size = new System.Drawing.Size(122, 48);
             this.buttonStatsForm.TabIndex = 12;
             this.buttonStatsForm.Text = "Статистика";
             this.buttonStatsForm.UseVisualStyleBackColor = true;
             this.buttonStatsForm.Click += new System.EventHandler(this.buttonStatsForm_Click);
             // 
+            // buttonUnused
+            // 
+            this.buttonUnused.Location = new System.Drawing.Point(155, 643);
+            this.buttonUnused.Name = "buttonUnused";
+            this.buttonUnused.Size = new System.Drawing.Size(185, 48);
+            this.buttonUnused.TabIndex = 13;
+            this.buttonUnused.Text = "Обладнання не використовувалося";
+            this.buttonUnused.UseVisualStyleBackColor = true;
+            this.buttonUnused.Click += new System.EventHandler(this.buttonUnused_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 695);
+            this.ClientSize = new System.Drawing.Size(496, 703);
+            this.Controls.Add(this.buttonUnused);
             this.Controls.Add(this.buttonStatsForm);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.groupBox1);
@@ -179,6 +191,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnErorCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnStoppingTime;
         private System.Windows.Forms.Button buttonStatsForm;
+        private System.Windows.Forms.Button buttonUnused;
     }
 }
 
