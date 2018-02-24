@@ -43,48 +43,6 @@ namespace PMSCS.DAL
 
         }
 
-        //public object[,] Select(string from1, params string[][] data)
-        //{
-
-        //    dbcon.Open();
-        //    dbCmd.Connection = dbcon;
-        //    string command = "SELECT ";
-        //    if (data.Length != 0)
-        //    {
-        //        for (int i = 0; i < data[0].Length; i++)
-        //        {
-        //            command += data[0][i];
-        //            if (i < data[0].Length - 1)
-        //            {
-        //                command += ",";
-        //            }
-        //            else
-        //            {
-        //                command += " ";
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        command += "*";
-        //    }
-        //    command += " WHERE ";
-        //    for (int i = 0; i < data[1].Length; i++)
-        //    {
-        //        command += data[1][i];
-        //        if (i < data[1].Length - 1)
-        //        {
-        //            command += ",";
-        //        }
-        //        else
-        //        {
-        //            command += " ";
-        //        }
-        //    }
-        //    command += "from " + from1;
-        //    //sdelat viborky
-        //    return null;
-        //}
         public bool Select(int shift, string date)
         {
             try
@@ -144,14 +102,6 @@ namespace PMSCS.DAL
                     st.Add(stopping);
                 }
                 dbcon.Close();
-                //  var test = st.Where(p =>
-
-                //  p.Date == date & p.Shift == shift
-                //  ).ToList();
-                //  var test2 = test.Where(p =>
-
-                //p.Date != date
-                //&& p.Shift != shift).ToList();
 
                 if (shift == 1)
                 {
@@ -212,8 +162,12 @@ namespace PMSCS.DAL
                     var lelus=720;
                     if (kokus != 0)
                     {
-                         lelus = ((720 - list.Where(p => p.MachineNumber == i /*&&!StaticClass.IfErrorInStopping(p.Reason)*/).Sum(p => p.StoppingTime)) / kokus);
+                         lelus = ((720 - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime)) / kokus);
 
+                    }
+                    else
+                    {
+                        lelus = ((720 - list.Where(p => p.MachineNumber == i).Sum(p => p.StoppingTime)));
                     }
                     StaticticsRow s = new StaticticsRow()
                     {

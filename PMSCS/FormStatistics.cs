@@ -30,7 +30,7 @@ namespace PMSCS
 
         private void buttonShow_Click(object sender, EventArgs e)
         {
-            dataGridViewStats.DataSource = null;
+            dataGridViewStats.Rows.Clear();
             string date = dateTimePickerFDDS.Value.ToShortDateString();
             int shiftFDDS=checkBoxShiftFDDS.Checked?2:1;
             if (abonent)

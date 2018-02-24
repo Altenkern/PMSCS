@@ -28,7 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStatistics));
             this.dataGridViewStats = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddEndDate = new System.Windows.Forms.Button();
             this.lbSelectInfo = new System.Windows.Forms.Label();
@@ -39,13 +47,6 @@
             this.checkBoxShiftFDDS = new System.Windows.Forms.CheckBox();
             this.dateTimePickerFDDF = new System.Windows.Forms.DateTimePicker();
             this.dateTimePickerFDDS = new System.Windows.Forms.DateTimePicker();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStats)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +67,41 @@
             this.dataGridViewStats.RowTemplate.Height = 24;
             this.dataGridViewStats.Size = new System.Drawing.Size(1408, 497);
             this.dataGridViewStats.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Пакувана машина";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Працювала, хв";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "Планові зупинки, хв";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "Не планові зупинки, хв";
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.HeaderText = "Кількість планових зупинок";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Кількість непланових зупинок";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "MTBF";
+            this.Column7.Name = "Column7";
             // 
             // groupBox2
             // 
@@ -169,41 +205,6 @@
             this.dateTimePickerFDDS.Size = new System.Drawing.Size(200, 22);
             this.dateTimePickerFDDS.TabIndex = 4;
             // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Пакувана машина";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Працювала, хв";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Планові зупинки, хв";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Не планові зупинки, хв";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Кількість планових зупинок";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Кількість непланових зупинок";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "MTBF";
-            this.Column7.Name = "Column7";
-            // 
             // FormStatistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -211,6 +212,7 @@
             this.ClientSize = new System.Drawing.Size(1433, 659);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dataGridViewStats);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormStatistics";
             this.Text = "FormStatistics";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewStats)).EndInit();
